@@ -22,7 +22,7 @@ namespace CadarRaulLab7
         {
             ((Editor)sender).BackgroundColor =
             string.IsNullOrEmpty(args.NewTextValue) ? Color.FromRgba("#AA4A44") :
-            Color.FromRgba("#FFFFFF");
+            Color.FromRgba("#828282");
         }
     }
 }

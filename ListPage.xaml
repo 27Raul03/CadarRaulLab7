@@ -24,11 +24,15 @@
  Clicked="OnDeleteButtonClicked"/>
         </Grid>
 
-        <ListView x:Name="listView"
- Margin="20">
+        <ListView x:Name="listView" Margin="20">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Detail="{Binding Description}" />
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Padding="3">
+                            <Label Text="{Binding Description}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
+                            <Button Text="Delete Item" Clicked="OnDeleteItemButtonClicked" BackgroundColor="Red" TextColor="White"/>
+                        </StackLayout>
+                    </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
