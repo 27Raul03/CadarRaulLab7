@@ -28,7 +28,10 @@ namespace CadarRaulLab7.Data
                 return _database.InsertAsync(product);
             }
         }
-
+        public Task<int> DeleteShopAsync(Shop shop)
+        {
+            return _database.DeleteAsync(shop);
+        }
         public Task<int> DeleteProductAsync(Product product)
         {
             return _database.DeleteAsync(product);

@@ -55,4 +55,23 @@ public partial class ShopPage : ContentPage
 
         await Map.OpenAsync(shoplocation, options);
     }
+
+    async void OnDeleteButtonClicked(object sender, EventArgs e)
+    {
+        var shop = (Shop)BindingContext;
+
+        bool isConfirmed = await DisplayAlert(
+            "Confirm Delete",
+            $"Are you sure you want to delete the shop: {shop.ShopName}?",
+            "Yes",
+            "No"
+        );
+
+        if (isConfirmed)
+        {
+            await App.Database.DeleteShopAsync(shop);
+
+            await Navigation.PopAsync();
+        }
+    }
 }
