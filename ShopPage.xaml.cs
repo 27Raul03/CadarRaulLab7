@@ -1,5 +1,7 @@
 using CadarRaulLab7.Models;
+using Microsoft.CodeAnalysis;
 using Microsoft.Maui.Devices.Sensors;
+using Plugin.LocalNotification;
 
 
 namespace CadarRaulLab7;
@@ -35,7 +37,8 @@ public partial class ShopPage : ContentPage
         var myLocation = await Geolocation.GetLocationAsync();
         /* var myLocation = new Location(46.7731796289, 23.6213886738);
        //pentru Windows Machine */
-      /*  var distance = myLocation.CalculateDistance(location, DistanceUnits.Kilometers);
+
+        var distance = myLocation.CalculateDistance(shoplocation, DistanceUnits.Kilometers);
         if (distance < 5)
         {
             var request = new NotificationRequest
@@ -48,7 +51,7 @@ public partial class ShopPage : ContentPage
                 }
             };
             LocalNotificationCenter.Current.Show(request);
-        }*/
+        }
 
         await Map.OpenAsync(shoplocation, options);
     }
